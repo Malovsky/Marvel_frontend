@@ -14,6 +14,8 @@ import Home from "./pages/Home";
 import Personnages from "./pages/Personnages";
 import Comics from "./pages/Comics";
 import Favoris from "./pages/Favoris";
+import Personnage from "./pages/Personnage";
+import Comic from "./pages/Comic";
 
 function App() {
   // const [isConnected, setIsConnected] = useState(false);
@@ -28,6 +30,8 @@ function App() {
         <Route path="/personnages" element={<Personnages />}></Route>
         <Route path="/comics" element={<Comics />}></Route>
         <Route path="/mes_favoris" element={<Favoris />}></Route>
+        <Route path="/personnage/:id" element={<Personnage />}></Route>
+        <Route path="/comic/:id" element={<Comic />}></Route>
       </Routes>
     </Router>
   );

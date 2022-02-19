@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import CardPersonnage from "../components/CardPersonnage";
+import { Link } from "react-router-dom";
 
 const Personnages = () => {
-  const [comics, setComics] = useState();
+  const [personnages, setPersonnages] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   const [page, setPage] = useState(1);
@@ -11,33 +12,39 @@ const Personnages = () => {
   const [name, setName] = useState("");
 
   useEffect(() => {
-    const fetchComics = async () => {
-      const data = await axios.get(
-        `http://localhost:3001/comics?name=${name}&page=${page}&limit=${limit}`
+    const fetchPersonnages = async () => {
+      const response = await axios.get(
+        `http://localhost:3001/personnages?name=${name}&page=${page}&limit=${limit}`
       );
-      setComics(data.data);
+      setPersonnages(response.data);
       setIsLoading(false);
-      console.log(data.data);
-      console.log("pass");
     };
-    fetchComics();
+    fetchPersonnages();
   }, [name, page]);
 
   return isLoading ? (
     <div>
-      <p>ça load</p>
+      <p>Loading ... </p>
     </div>
   ) : (
     <div className="personnages-container">
-      <input
-        className="search-personnages"
-        type="text"
-        value={name}
-        onChange={(event) => setName(event.target.value)}
-      />
+      <div className="search-personnages-container">
+        <label htmlFor="search-personnages">Chercher un personnage</label>
+        <input
+          id="search-personnages"
+          type="text"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+        />
+      </div>
+
       <div className="card-personnages-container">
-        {comics.results.map((comic) => {
-          return <CardPersonnage key={comic._id} comic={comic} />;
+        {personnages.results.map((personnage) => {
+          return (
+            <Link to={`/personnage/${personnage._id}`} key={personnage._id}>
+              <CardPersonnage key={personnage._id} personnage={personnage} />
+            </Link>
+          );
         })}
       </div>
       <div className="pagination">
@@ -46,17 +53,19 @@ const Personnages = () => {
             className="home-button"
             onClick={() => {
               setPage(page - 1);
+              window.scrollTo(0, 0);
             }}
           >
             -
           </button>
         )}
         <p className="page">{page}</p>
-        {page <= Math.trunc(Number(comics.count) / limit) && (
+        {page <= Math.trunc(Number(personnages.count) / limit) && (
           <button
             className="home-button"
             onClick={() => {
               setPage(page + 1);
+              window.scrollTo(0, 0);
             }}
           >
             +

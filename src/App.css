@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 a {
   text-decoration: none;
   color: white;
@@ -9,7 +13,7 @@ a {
 
 body {
   font-family: "Roboto", sans-serif;
-  background-color: #4e4e4e;
+  background-color: #313131;
   color: white;
 }
 
@@ -29,7 +33,7 @@ header {
   align-items: center;
   height: 100%;
   margin: 0 auto;
-  max-width: 1100px;
+  max-width: 80%;
 }
 
 .home-button {
@@ -81,23 +85,40 @@ header {
 
 /* PERSONNAGES */
 
-.personnages-container {
+.personnages-container,
+.comics-container {
   display: flex;
   flex-direction: column;
 }
 
-.card-personnages-container {
+.card-personnages-container,
+.card-comics-container {
   display: flex;
   justify-content: center;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  max-width: 1100px;
+  max-width: 1240px;
 }
 
-.search-personnages {
+.search-personnages-container,
+.search-comics-container {
+  display: flex;
+  flex-direction: column;
   margin: 1rem auto 2rem;
   width: 30%;
+}
+
+.search-personnages-container label,
+.search-comics-container label {
+  margin: 0 auto;
+  font-family: "Staatliches", cursive;
+  font-size: x-large;
+}
+
+#search-personnages,
+#serach-comics {
+  margin: 1rem;
   padding: 0.5rem;
   border: none;
   border-radius: 5px;
@@ -109,11 +130,24 @@ input:focus {
 }
 
 .card-personnage {
-  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 360px;
+  margin: 0.5rem 0.5rem 3rem 0.5rem;
+  cursor: pointer;
+  background: linear-gradient(#202020, #202020 50%, #ee161e 50%, #ee161e);
+  background-size: 100% 70%;
+  /*trasition effect for background*/
+  transition: background 0.5s;
+}
+
+.card-personnage:hover {
+  background-position: 100% 100%;
 }
 
 .card-personnage-picture-container {
-  height: 100%;
+  height: 250px;
 }
 
 .card-personnage-picture {
@@ -122,6 +156,145 @@ input:focus {
   object-fit: cover;
 }
 
+.card-personnage-texts {
+  border-top: #ee161e solid 5px;
+  padding: 0 0.5rem;
+}
+
+.card-personnage-name {
+  margin: 0.5rem 0;
+}
+.card-personnage-description {
+  font-weight: 100;
+}
+.card-personnage-nodescription {
+  font-style: italic;
+}
+
+/* PERSONNAGE */
+
+.personnage-container,
+.comic-container {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.personnage-comics-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  width: 50%;
+}
+
+.personnage-comics-image-container img {
+  width: 70%;
+}
+
+.personnage-texts {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: 50%;
+}
+
+.personnage-name {
+  font-size: xx-large;
+  margin: 0 auto 2rem;
+  padding: 0.5rem;
+  border-bottom: 5px solid #ee161e;
+}
+.personnage-description {
+  line-height: 1.5rem;
+}
+
+.personnage-comics-container {
+  display: flex;
+  margin: 2rem 0;
+  overflow: hidden;
+  overflow-x: scroll;
+  max-width: 100%;
+}
+
+.personnage-comic-container {
+  width: 100%;
+  margin: 0 1rem;
+}
+
+.personnage-comics {
+  height: 340px;
+  object-fit: cover;
+  margin-bottom: 2rem;
+}
+
+.card-personnage-apparition {
+  font-size: x-large;
+  margin-top: 5rem;
+}
+
+/* COMICS */
+
+.imgtest {
+  width: 100px;
+  margin: 1rem;
+}
+
+.card-comic {
+  margin: 0 0.5rem 3rem 0.5rem;
+  width: 225px;
+}
+
+.card-comic-picture-container {
+  width: 100%;
+}
+
+.card-comic-picture {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  box-shadow: 0 26px 24px -16px rgba(0, 0, 0, 0.4);
+  transition: all 0.17s ease-in-out;
+}
+
+.card-comic-picture:hover {
+  -ms-transform: scale(1.1); /* IE 9 */
+  -webkit-transform: scale(1.1); /* Safari 3-8 */
+  transform: scale(1.1);
+}
+
+.card-comic-texts {
+  margin-top: 1.5rem;
+  font-size: small;
+}
+
+/* COMIC */
+
+.comic-texts {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: 50%;
+}
+
+.comic-image-container {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  width: 50%;
+}
+
+.comic-texts-title {
+  font-size: xx-large;
+  margin: 0 auto 2rem;
+  padding: 0.5rem;
+  border-bottom: 5px solid #ee161e;
+}
+.comic-text-description {
+}
+
+/* PAGINATION */
 .pagination {
   display: flex;
   align-items: baseline;
