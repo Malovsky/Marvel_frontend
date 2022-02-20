@@ -13,7 +13,7 @@ const Comics = () => {
   useEffect(() => {
     const fetchComics = async () => {
       const response = await axios.get(
-        `http://localhost:3001/comics?title=${title}&page=${page}&limit=${limit}`
+        `https://marvel-back-malovsky.herokuapp.com/comics?title=${title}&page=${page}&limit=${limit}`
       );
       setComics(response.data);
       setIsLoading(false);

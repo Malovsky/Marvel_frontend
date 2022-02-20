@@ -15,7 +15,7 @@ const Signup = ({ setUser }) => {
     try {
       const data = { email: email, password: password };
       const response = await axios.post(
-        `http://localhost:3001/user/signup`,
+        `https://marvel-back-malovsky.herokuapp.com/user/signup`,
         data
       );
       setUser(response.data.token);

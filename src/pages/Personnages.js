@@ -14,7 +14,7 @@ const Personnages = () => {
   useEffect(() => {
     const fetchPersonnages = async () => {
       const response = await axios.get(
-        `http://localhost:3001/personnages?name=${name}&page=${page}&limit=${limit}`
+        `https://marvel-back-malovsky.herokuapp.com/personnages?name=${name}&page=${page}&limit=${limit}`
       );
       setPersonnages(response.data);
       setIsLoading(false);

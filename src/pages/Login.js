@@ -15,7 +15,7 @@ const Login = ({ setUser }) => {
       const data = { email: email, password: password };
 
       const response = await axios.post(
-        `http://localhost:3001/user/login`,
+        `https://marvel-back-malovsky.herokuapp.com/user/login`,
         data
       );
       setUser(response.data.token);

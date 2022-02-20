@@ -12,7 +12,7 @@ const Personnage = () => {
   useEffect(() => {
     const fetchPersonnage = async () => {
       const response = await axios.get(
-        `http://localhost:3001/personnage/${id}`
+        `https://marvel-back-malovsky.herokuapp.com/personnage/${id}`
       );
       setPersonnage(response.data);
       setIsLoading(false);
