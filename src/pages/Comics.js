@@ -20,7 +20,7 @@ const Comics = () => {
     };
     fetchComics();
     setLimit(50);
-  }, [title, page]);
+  }, [title, page, limit]);
 
   return isLoading ? (
     <div>
