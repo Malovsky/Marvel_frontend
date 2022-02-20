@@ -21,6 +21,8 @@ const Comics = () => {
     fetchComics();
   }, [title, page]);
 
+  setLimit(50);
+
   return isLoading ? (
     <div>
       <p>Loading ... </p>

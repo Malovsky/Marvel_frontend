@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import CardComic from "../components/CardComic";
 
 const Personnage = () => {
   const [personnage, setPersonnage] = useState();
@@ -19,7 +18,7 @@ const Personnage = () => {
     };
 
     fetchPersonnage();
-  }, []);
+  }, [id]);
 
   return isLoading ? (
     <p>Loading ...</p>
@@ -42,6 +41,7 @@ const Personnage = () => {
                 <img
                   className="personnage-comics"
                   src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+                  alt={comic._id}
                 ></img>
                 <p>{comic.title}</p>
               </div>
