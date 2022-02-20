@@ -39,7 +39,6 @@ const Comics = () => {
 
       <div className="card-comics-container">
         {comics.results.map((comic) => {
-          console.log(comic);
           return (
             <Link to={`/comic/${comic._id}`} key={comic._id} state={comic}>
               <CardComic key={comic._id} comic={comic} />

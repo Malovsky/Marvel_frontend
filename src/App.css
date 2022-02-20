@@ -6,6 +6,11 @@ html {
   scroll-behavior: smooth;
 }
 
+h2 {
+  font-size: x-large;
+  margin: 2rem auto;
+}
+
 a {
   text-decoration: none;
   color: white;
@@ -15,6 +20,14 @@ body {
   font-family: "Roboto", sans-serif;
   background-color: #313131;
   color: white;
+}
+
+.full-screen {
+  display: initial;
+}
+
+.small-screen {
+  display: none;
 }
 
 /* HEADER */
@@ -271,6 +284,13 @@ input:focus {
 
 /* COMIC */
 
+.comic-details-container {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 80%;
+}
+
 .comic-texts {
   display: flex;
   flex-direction: column;
@@ -291,7 +311,66 @@ input:focus {
   padding: 0.5rem;
   border-bottom: 5px solid #ee161e;
 }
+
 .comic-text-description {
+}
+
+/* SIGNUP - LOGIN */
+
+.signup-container,
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#signup-form,
+#login-form {
+  display: flex;
+  flex-direction: column;
+  background-color: #202020;
+  padding: 1rem;
+  border-radius: 5px;
+  margin: 1rem auto 2rem;
+}
+
+#signup-form input,
+#login-form input {
+  width: 15rem;
+  margin: 1rem 2rem;
+  padding: 0.5rem;
+  background-color: #202020;
+  color: white;
+  border: none;
+  border-bottom: 2px solid #ee161e;
+}
+
+.submit-login-button,
+.submit-signup-button {
+  transition-duration: 300ms;
+  font-family: "Staatliches", cursive;
+  padding: 0.5rem;
+  width: 7rem;
+  border-radius: 5px;
+  background-color: #ee161e;
+  color: white;
+  border: none;
+  margin: 2rem auto;
+  font-size: large;
+  letter-spacing: 0.3rem;
+  cursor: pointer;
+}
+
+.submit-login-button:hover,
+.submit-signup-button:hover {
+  transition-duration: 300ms;
+  color: #ee161e;
+  background-color: white;
+  border: 2px solid #ee161e;
+}
+
+.login-signup-link {
+  cursor: pointer;
 }
 
 /* PAGINATION */
@@ -303,4 +382,187 @@ input:focus {
 
 .page {
   font-size: x-large;
+}
+
+/* MARVEL HOME PAGE */
+.logo {
+  text-align: center;
+  width: 65%;
+  height: 250px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  user-select: none;
+}
+
+.logo b {
+  font: 400 5vh "Roboto";
+  color: #fee;
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ee161e, 0 0 0.5em #ee161e,
+    0 0 0.1em #ee161e, 0 10px 3px #000;
+}
+.logo b span {
+  animation: blink linear infinite 2s;
+}
+.logo b span:nth-of-type(2) {
+  animation: blink linear infinite 3s;
+}
+@keyframes blink {
+  78% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  79% {
+    color: #333;
+  }
+  80% {
+    text-shadow: none;
+  }
+  81% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  82% {
+    color: #333;
+    text-shadow: none;
+  }
+  83% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  92% {
+    color: #333;
+    text-shadow: none;
+  }
+  92.5% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+}
+
+/* DROP DOWN BUTTON */
+
+.drp-down,
+.dropbtn {
+  font-family: "Staatliches", cursive;
+  margin: 0.5rem 1rem;
+  font-size: x-large;
+  letter-spacing: 0.3rem;
+}
+
+#myDropdown p {
+  color: white;
+  padding: 1rem 0.5rem;
+}
+
+#myDropdown p:hover {
+  background-color: #ee161e;
+}
+
+#myDropdown a {
+  padding: 0px;
+}
+
+.dropbtn {
+  background-color: #ee161e;
+  border-radius: 5px;
+  color: white;
+  padding: 0.5rem;
+  font-size: x-large;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+  transition-duration: 300ms;
+  color: #ee161e;
+  background-color: white;
+  border: 2px solid #ee161e;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #202020;
+  color: white;
+  min-width: 95px;
+  overflow: auto;
+  border: #ee161e solid 2px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}
+
+/* RESPONSIVE */
+@media only screen and (max-width: 950px) {
+  .full-screen {
+    display: none;
+  }
+
+  .small-screen {
+    display: initial;
+  }
+
+  .search-personnages-container,
+  .search-comics-container {
+    width: 50%;
+  }
+  #myDropdown p {
+    font-size: small;
+    letter-spacing: 0rem;
+  }
+
+  .search-personnages-container label {
+    font-size: large;
+  }
+
+  .personnage-container,
+  .comic-container {
+    flex-direction: column;
+  }
+
+  .comic-image-container img {
+    width: 100%;
+  }
+
+  .personnage-texts,
+  .personnage-comics-image-container {
+    width: 100%;
+  }
+
+  .personnage-comics {
+    height: 210px;
+  }
+}
+@media only screen and (max-width: 1300px) {
+  .comic-details-container {
+    flex-direction: column;
+  }
+
+  .comic-texts,
+  .comic-image-container {
+    width: 100%;
+  }
 }

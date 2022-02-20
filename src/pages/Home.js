@@ -1,5 +1,11 @@
 const Home = () => {
-  return <div>Home Component</div>;
+  return (
+    <div className="logo">
+      <b>
+        WIKI <span>M</span>AR<span>V</span>EL
+      </b>
+    </div>
+  );
 };
 
 export default Home;
