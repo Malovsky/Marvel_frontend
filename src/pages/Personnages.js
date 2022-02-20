@@ -20,9 +20,8 @@ const Personnages = () => {
       setIsLoading(false);
     };
     fetchPersonnages();
+    setLimit(50);
   }, [name, page]);
-
-  setLimit(50);
 
   return isLoading ? (
     <div>

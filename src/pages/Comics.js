@@ -19,9 +19,8 @@ const Comics = () => {
       setIsLoading(false);
     };
     fetchComics();
+    setLimit(50);
   }, [title, page]);
-
-  setLimit(50);
 
   return isLoading ? (
     <div>
